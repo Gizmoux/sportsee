@@ -7,10 +7,7 @@ import './style/App.css';
 import AverageSessions from './components/AverageSessions';
 import RadarPerformance from './components/RadarPerformance';
 import KPI from './components/KPI';
-import Calories from './components/Calories';
-import Proteines from './components/Proteines';
-import Glucides from './components/Glucides';
-import Lipides from './components/Lipides';
+import Nutrient from './components/Nutrient';
 import User from './components/User';
 import Home from './components/Home';
 // import Product from './pages/Product';
@@ -59,10 +56,9 @@ function App() {
 								</div>
 							</div>
 							<div className="nutrients">
-								<Calories />
-								<Proteines />
-								<Glucides />
-								<Lipides />
+								<Routes>
+									<Route path="/user/:id/activity" element={<Nutrient />} />
+								</Routes>
 							</div>
 						</div>
 					</div>
