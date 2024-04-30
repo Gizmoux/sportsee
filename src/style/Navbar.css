@@ -1,0 +1,23 @@
+.navbar {
+	background-color: black;
+	color: white;
+	height: 91px;
+}
+.logo {
+	width: 178px;
+}
+.navbar-items {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0;
+	padding: 10px 10px;
+}
+.link {
+	text-decoration: none;
+	color: inherit;
+}
+.link:hover {
+	text-decoration: underline;
+}

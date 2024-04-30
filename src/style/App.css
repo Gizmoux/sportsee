@@ -1,0 +1,31 @@
+.app-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	display: flex;
+	flex: 1;
+}
+
+.main-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.infos-container {
+	background-color: brown;
+	display: flex;
+	width: 100%;
+}
+
+.nutrients {
+	background-color: aquamarine;
+	display: flex;
+	flex-direction: column;
+}
