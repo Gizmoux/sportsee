@@ -22,19 +22,27 @@ const RadarPerformance = () => {
 	return (
 		<div>
 			<h1>RadarID {id}</h1>
-			<RadarChart outerRadius={90} width={380} height={250} data={data}>
-				<PolarGrid
-					gridType="polygon"
-					radialLines={false}
-					polarRadius={[0, 10, 30, 50, 70, 90]}
+			<RadarChart
+				innerRadius="0"
+				outerRadius="70%"
+				width={380}
+				height={250}
+				data={data}
+			>
+				<PolarGrid gridType="polygon" radialLines={false} />
+				<PolarAngleAxis
+					dataKey="subject"
+					stroke="white"
+					tickLine={false}
+					dy={4}
+					tickSize={15}
 				/>
-				<PolarAngleAxis dataKey="subject" />
 
 				<Radar
 					name={`ID ${id}`}
 					dataKey="value"
-					stroke="#8884d8"
-					fill="#8884d8"
+					stroke="#FF0101B2"
+					fill="#FF0101B2"
 					fillOpacity={0.7}
 				/>
 

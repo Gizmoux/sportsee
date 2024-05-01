@@ -9,6 +9,7 @@ import {
 	YAxis,
 	CartesianGrid,
 	Tooltip,
+	ResponsiveContainer,
 	Legend,
 } from 'recharts';
 
@@ -29,14 +30,26 @@ const AverageSessions = () => {
 	return (
 		<div className="average">
 			<h1>Le user ID est {id}</h1>
+
 			<LineChart width={258} height={263} data={data}>
 				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="name" />
-				<YAxis />
-				<Tooltip />
-				<Legend />
+				<XAxis
+					dataKey="name"
+					axisLine={false}
+					tick={{ fill: 'white' }}
+					tickLine={false}
+					hide={true}
+				/>
+				<YAxis domain={['dataMin - 20', 'dataMax + 45']} hide={true} />
+				<Tooltip offset={30} />
 
-				<Line type="monotone" dataKey="average" stroke="#82ca9d" />
+				<Line
+					type="monotone"
+					dataKey="average"
+					stroke="white"
+					strokeWidth={2}
+					dot={false}
+				/>
 			</LineChart>
 		</div>
 	);

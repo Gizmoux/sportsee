@@ -30,14 +30,32 @@ const DailyActivity = () => {
 		<div className="daily">
 			<h1>DAILY ACTIVITY</h1>
 			<h1>Le user id est {id}</h1>
-			<BarChart width={800} height={400} data={data}>
-				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="name" />
-				<YAxis />
-				<Tooltip />
-				<Legend />
-				<Bar dataKey="kilograms" fill="#282D30" name="Kilograms" />
-				<Bar dataKey="calories" fill="#E60001" name="Calories" />
+			<BarChart width={770} height={200} barCategoryGap={40} data={data}>
+				<CartesianGrid strokeDasharray="2 2" vertical={false} />
+				<XAxis dataKey="name" axisLine={false} tickSize={19} tickLine={false} />
+				<YAxis
+					orientation="right"
+					axisLine={false}
+					tickSize={30}
+					tickLine={false}
+				/>
+				{/* <Legend /> */}
+				<Tooltip offset={30} />
+				<Bar
+					dataKey="kilograms"
+					fill="#282D30"
+					name="Poids (kg)"
+					minPointSize={3}
+					maxBarSize={7}
+					radius={[3, 3, 0, 0]}
+				/>
+				<Bar
+					dataKey="calories"
+					fill="#E60001"
+					name="Calories brûlées (kCal)"
+					radius={[3, 3, 0, 0]}
+					maxBarSize={7}
+				/>
 			</BarChart>
 		</div>
 	);
