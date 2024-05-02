@@ -26,26 +26,37 @@ const AverageSessions = () => {
 				average: session.sessionLength,
 		  }))
 		: [];
-
+	const CustomizedTooltip: React.FC<CustomizedTooltipProps> = ({ payload }) => {
+		if (!payload) return null;
+		return (
+			<div className="average-tooltip">
+				{payload.map((category: any, idx: React.Key | null | undefined) => (
+					<div key={idx}>
+						<p>{category.value} min</p>
+					</div>
+				))}
+				{/* <p>{payload.value} min</p> */}
+			</div>
+		);
+	};
 	return (
 		<div className="average">
-			<h1>Le user ID est {id}</h1>
+			<h4>Durée moyenne des sessions</h4>
 
-			<LineChart width={258} height={200} data={data}>
-				<CartesianGrid />
+			<LineChart width={260} height={250} data={data}>
+				{/* <CartesianGrid /> */}
 				<XAxis
 					dataKey="name"
 					axisLine={false}
-					tick={{ fill: 'white' }}
 					tickLine={false}
-					hide={false}
+					tick={{ fill: 'white' }}
 				/>
 
 				<YAxis domain={['dataMin - 20', 'dataMax + 45']} hide={true} />
 				<Tooltip
 					offset={30}
-					cursor={{ stroke: '#dfdfdf', strokeWidth: 2 }}
-					allowEscapeViewBox={{ x: true, y: true }}
+					cursor={{ stroke: '#dfdfdf', strokeWidth: 0 }}
+					content={<CustomizedTooltip />}
 				/>
 				<Line
 					type="monotone"

@@ -253,11 +253,11 @@ export const USER_PERFORMANCE = [
 		userId: 18,
 		kind: {
 			1: 'cardio',
-			2: 'energy',
+			2: 'énergie',
 			3: 'endurance',
-			4: 'strength',
-			5: 'speed',
-			6: 'intensity',
+			4: 'force',
+			5: 'vitesse',
+			6: 'intensité',
 		},
 		data: [
 			{

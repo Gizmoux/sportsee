@@ -8,7 +8,7 @@ import {
 } from 'recharts';
 import { useParams } from 'react-router-dom';
 import { USER_PERFORMANCE } from '../mock/mockData';
-
+import '../style/RadarPerformance.css';
 const RadarPerformance = () => {
 	const { id } = useParams();
 	const userData = USER_PERFORMANCE.find(user => user.userId.toString() === id);
@@ -20,12 +20,12 @@ const RadarPerformance = () => {
 		  }))
 		: [];
 	return (
-		<div>
-			<h1>RadarID {id}</h1>
+		<div className="radar-container">
+			{/* <h1>RadarID {id}</h1> */}
 			<RadarChart
 				innerRadius="0"
-				outerRadius="70%"
-				width={380}
+				outerRadius="50%"
+				width={260}
 				height={250}
 				data={data}
 			>

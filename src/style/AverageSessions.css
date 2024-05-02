@@ -1,4 +1,19 @@
 .average {
 	background-color: #e60001;
-	height: 350px;
+	height: 300px;
+}
+h4 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+.average-tooltip {
+	height: 34px;
+	width: 50px;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+	align-items: center;
+	background-color: white;
+	color: black;
 }
