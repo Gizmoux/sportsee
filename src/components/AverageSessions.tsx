@@ -22,7 +22,7 @@ const AverageSessions = () => {
 
 	const data = userData
 		? userData.sessions.map(session => ({
-				name: session.day,
+				name: userData.days[session.day],
 				average: session.sessionLength,
 		  }))
 		: [];
@@ -31,18 +31,22 @@ const AverageSessions = () => {
 		<div className="average">
 			<h1>Le user ID est {id}</h1>
 
-			<LineChart width={258} height={263} data={data}>
-				<CartesianGrid strokeDasharray="3 3" />
+			<LineChart width={258} height={200} data={data}>
+				<CartesianGrid />
 				<XAxis
 					dataKey="name"
 					axisLine={false}
 					tick={{ fill: 'white' }}
 					tickLine={false}
-					hide={true}
+					hide={false}
 				/>
-				<YAxis domain={['dataMin - 20', 'dataMax + 45']} hide={true} />
-				<Tooltip offset={30} />
 
+				<YAxis domain={['dataMin - 20', 'dataMax + 45']} hide={true} />
+				<Tooltip
+					offset={30}
+					cursor={{ stroke: '#dfdfdf', strokeWidth: 2 }}
+					allowEscapeViewBox={{ x: true, y: true }}
+				/>
 				<Line
 					type="monotone"
 					dataKey="average"

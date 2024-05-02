@@ -127,6 +127,15 @@ export const USER_ACTIVITY = [
 export const USER_AVERAGE_SESSIONS = [
 	{
 		userId: 12,
+		days: {
+			1: 'L',
+			2: 'M',
+			3: 'M',
+			4: 'J',
+			5: 'V',
+			6: 'S',
+			7: 'D',
+		},
 		sessions: [
 			{
 				day: 1,
@@ -160,6 +169,15 @@ export const USER_AVERAGE_SESSIONS = [
 	},
 	{
 		userId: 18,
+		days: {
+			1: 'L',
+			2: 'M',
+			3: 'M',
+			4: 'J',
+			5: 'V',
+			6: 'S',
+			7: 'D',
+		},
 		sessions: [
 			{
 				day: 1,

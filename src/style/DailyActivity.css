@@ -1,7 +1,7 @@
 .daily {
 	background-color: lightgreen;
 	width: 100%;
-	height: 550px;
+	height: 350px;
 	top: 325px;
 	left: 226px;
 }
@@ -12,4 +12,42 @@
 .barChart {
 	display: flex;
 	flex-direction: row;
+}
+.daily-tooltip {
+	height: 63px;
+	width: 39px;
+	display: flex;
+	padding: 10px;
+	flex-direction: column;
+	font-size: 12px;
+	align-items: center;
+	background-color: #e60001;
+	color: white;
+}
+.black-point,
+.red-point {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.black-point {
+	background-color: black;
+}
+
+.red-point {
+	background-color: #e60001;
+}
+.title-legend {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.legend {
+	span {
+		margin-right: 20px;
+	}
 }

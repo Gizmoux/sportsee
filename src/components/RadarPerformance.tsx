@@ -46,7 +46,7 @@ const RadarPerformance = () => {
 					fillOpacity={0.7}
 				/>
 
-				<Legend />
+				{/* <Legend /> */}
 			</RadarChart>
 		</div>
 	);
