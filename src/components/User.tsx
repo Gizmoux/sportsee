@@ -9,8 +9,10 @@ const User = () => {
 		<div className="user-container">
 			<div>
 				<h1>
-					The user name is :
-					{user ? user.userInfos.firstName : 'Utilisateur inconnu'}
+					Bonjour{' '}
+					<span className="user-name-span">
+						{user ? user.userInfos.firstName : 'Utilisateur inconnu'}
+					</span>
 				</h1>
 
 				<h2>Félicitations ! Vous avez explosé vos objectifs hier </h2>

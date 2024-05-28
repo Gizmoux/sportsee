@@ -23,7 +23,11 @@ function App() {
 					<LeftNavbar />
 					<div className="main-content">
 						{/* <User /> */}
-						<Home />
+
+						<Routes>
+							<Route path="/profil" element={<Home />} />
+						</Routes>
+
 						<Routes>
 							<Route path="/user/:id" element={<User />} />
 						</Routes>

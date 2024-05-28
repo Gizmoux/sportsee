@@ -1,6 +1,7 @@
 import '../style/DailyActivity.css';
 import { USER_ACTIVITY } from '../mock/mockData';
 import { useParams } from 'react-router-dom';
+import User from './User';
 import {
 	BarChart,
 	Bar,
@@ -43,6 +44,7 @@ const DailyActivity = () => {
 	};
 	return (
 		<div className="daily">
+			<User />
 			<div className="title-legend">
 				<h2>Activité quotidienne</h2>
 				<div className="legend">

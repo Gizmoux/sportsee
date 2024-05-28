@@ -1,5 +1,5 @@
 .user-container {
-	background-color: blue;
+	/* background-color: blue; */
 
 	width: 396px;
 	height: 200px;
@@ -7,4 +7,7 @@
 	left: 224px;
 	gap: 0px;
 	opacity: 0px;
+}
+.user-name-span {
+	color: #fa1901;
 }

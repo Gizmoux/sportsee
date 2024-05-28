@@ -2,16 +2,7 @@ import '../style/AverageSessions.css';
 import { USER_AVERAGE_SESSIONS } from '../mock/mockData';
 import { useParams } from 'react-router-dom';
 
-import {
-	LineChart,
-	Line,
-	XAxis,
-	YAxis,
-	CartesianGrid,
-	Tooltip,
-	ResponsiveContainer,
-	Legend,
-} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
 const AverageSessions = () => {
 	const { id } = useParams();
