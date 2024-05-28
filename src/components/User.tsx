@@ -37,7 +37,8 @@ const User = () => {
 		const fetchUser = async () => {
 			try {
 				const userData = await getUserById(id);
-				setUser(userData);
+				setUser(userData.data);
+				console.log('userData', userData.data);
 			} catch (error) {
 				setError('Utilisateur inconnu');
 				console.error('Error fetching user data:', error);
@@ -59,7 +60,7 @@ const User = () => {
 				<h1>
 					Bonjour{' '}
 					<span className="user-name-span">
-						{user && user.userInfos ? user.userInfos.firstName : error}
+						{user ? user.userInfos.firstName : error}
 					</span>
 				</h1>
 				<h2>
