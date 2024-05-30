@@ -38,7 +38,7 @@ const User = () => {
 			try {
 				const userData = await getUserById(id);
 				setUser(userData.data);
-				console.log('userData', userData.data);
+				// console.log('userData', userData.data);
 			} catch (error) {
 				setError('Utilisateur inconnu');
 				console.error('Error fetching user data:', error);

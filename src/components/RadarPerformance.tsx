@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+import { getUserPerformance } from '../services/api';
+
 import {
 	Radar,
 	RadarChart,
@@ -7,19 +10,54 @@ import {
 	Legend,
 } from 'recharts';
 import { useParams } from 'react-router-dom';
-import { USER_PERFORMANCE } from '../mock/mockData';
+// import { USER_PERFORMANCE } from '../mock/mockData';
 import '../style/RadarPerformance.css';
 const RadarPerformance = () => {
+	// const { id } = useParams();
+	// const userData = USER_PERFORMANCE.find(user => user.userId.toString() === id);
+	// // Transformer les données de userData pour les adapter au format attendu par RadarChart
+	// const data = userData
+	// 	? userData.data.map(item => ({
+	// 			subject: userData.kind[item.kind],
+	// 			value: item.value,
+	// 	  }))
+	// 	: [];
 	const { id } = useParams();
-	const userData = USER_PERFORMANCE.find(user => user.userId.toString() === id);
-	// Transformer les données de userData pour les adapter au format attendu par RadarChart
-	const data = userData
-		? userData.data.map(item => ({
-				subject: userData.kind[item.kind],
-				value: item.value,
-		  }))
-		: [];
+	const [performanceData, setPerformanceData] = useState([]);
+	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(true);
 
+	useEffect(() => {
+		const fetchUserPerformance = async () => {
+			try {
+				const userData = await getUserPerformance(id);
+				console.log('userData', userData);
+
+				const transformedData = userData.data.map(item => ({
+					subject: userData.kind[item.kind],
+					value: item.value,
+				}));
+
+				setPerformanceData(transformedData);
+				console.log('transformedData', transformedData);
+			} catch (error) {
+				setError('Erreur lors de la récupération des performances utilisateur');
+				console.error('Error fetching user performance data:', error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchUserPerformance();
+	}, [id]);
+
+	if (loading) {
+		return <div>Chargement...</div>;
+	}
+
+	if (error) {
+		return <div>{error}</div>;
+	}
 	return (
 		<div className="radar-container">
 			{/* <h1>RadarID {id}</h1> */}
@@ -28,7 +66,7 @@ const RadarPerformance = () => {
 				outerRadius="50%"
 				width={260}
 				height={250}
-				data={data}
+				data={performanceData}
 			>
 				<PolarGrid gridType="polygon" radialLines={false} />
 				<PolarAngleAxis
