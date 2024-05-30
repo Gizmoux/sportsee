@@ -19,23 +19,7 @@ const RadarPerformance = () => {
 				value: item.value,
 		  }))
 		: [];
-	// Add use Effect ici
-	// useEffect(() => {
-	// 	const fetchUser = async () => {
-	// 		try {
-	// 			const userData = await getUserById(id);
-	// 			setUser(userData.data);
-	// 			console.log('userData', userData.data);
-	// 		} catch (error) {
-	// 			setError('Utilisateur inconnu');
-	// 			console.error('Error fetching user data:', error);
-	// 		} finally {
-	// 			setLoading(false);
-	// 		}
-	// 	};
 
-	// 	fetchUser();
-	// }, [id]);
 	return (
 		<div className="radar-container">
 			{/* <h1>RadarID {id}</h1> */}
