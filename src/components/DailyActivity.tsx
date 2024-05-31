@@ -1,5 +1,7 @@
 import '../style/DailyActivity.css';
-import { USER_ACTIVITY } from '../mock/mockData';
+import { useEffect, useState } from 'react';
+import { getUserActivityById } from '../services/api';
+// import { USER_ACTIVITY } from '../mock/mockData';
 import { useParams } from 'react-router-dom';
 import User from './User';
 import {
@@ -13,19 +15,55 @@ import {
 } from 'recharts';
 
 const DailyActivity = () => {
-	const { id } = useParams();
+	// const { id } = useParams();
 
 	// Trouver les données de l'utilisateur correspondant à l'ID
-	const userData = USER_ACTIVITY.find(user => user.userId.toString() === id);
+	// const userData = USER_ACTIVITY.find(user => user.userId.toString() === id);
 
 	// Formatage des données pour Recharts
-	const data = userData
-		? userData.sessions.map(session => ({
-				name: session.day,
-				kilograms: session.kilogram,
-				calories: session.calories,
-		  }))
-		: [];
+	// const data = userData
+	// 	? userData.sessions.map(session => ({
+	// 			name: session.day,
+	// 			kilograms: session.kilogram,
+	// 			calories: session.calories,
+	// 	  }))
+	// 	: [];
+
+	const { id } = useParams();
+	const [activityData, setActivityData] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const fetchUserActivity = async () => {
+			try {
+				const userData = await getUserActivityById(id);
+				console.log('userData dans DailyActivity', userData.data.sessions);
+
+				// Formatage des données pour Recharts
+				const formattedData = userData
+					? userData.data.sessions.map(session => ({
+							name: session.day,
+							kilograms: session.kilogram,
+							calories: session.calories,
+					  }))
+					: [];
+
+				setActivityData(formattedData);
+			} catch (error) {
+				setError('Erreur lors de la récupération des activités utilisateur');
+				console.error('Error fetching user activity data:', error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchUserActivity();
+	}, [id]);
+
+	if (loading) return <div>Loading...</div>;
+	if (error) return <div>{error}</div>;
+
 	/**
 	 * Custom tooltip component to display weight and calories on hover.
 	 * @param {CustomizedTooltipProps} props - The tooltip props object.
@@ -55,7 +93,12 @@ const DailyActivity = () => {
 				</div>
 			</div>
 			{/* <h1>Le user id est {id}</h1> */}
-			<BarChart width={770} height={200} barCategoryGap={40} data={data}>
+			<BarChart
+				width={770}
+				height={200}
+				barCategoryGap={40}
+				data={activityData}
+			>
 				<CartesianGrid strokeDasharray="2 2" vertical={false} />
 				<XAxis dataKey="name" axisLine={false} tickSize={19} tickLine={false} />
 				<YAxis
