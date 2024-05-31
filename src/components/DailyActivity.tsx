@@ -38,7 +38,7 @@ const DailyActivity = () => {
 		const fetchUserActivity = async () => {
 			try {
 				const userData = await getUserActivityById(id);
-				console.log('userData dans DailyActivity', userData.data.sessions);
+				// console.log('userData dans DailyActivity', userData.data.sessions);
 
 				// Formatage des données pour Recharts
 				const formattedData = userData

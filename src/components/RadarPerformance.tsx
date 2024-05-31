@@ -31,9 +31,9 @@ const RadarPerformance = () => {
 		const fetchUserPerformance = async () => {
 			try {
 				const userData = await getUserPerformance(id);
-				console.log('userData dans radarPerf', userData);
-				console.log('userData.data.kind', userData.data.kind);
-				console.log('userData.data.data', userData.data.data);
+				// console.log('userData dans radarPerf', userData);
+				// console.log('userData.data.kind', userData.data.kind);
+				// console.log('userData.data.data', userData.data.data);
 
 				const radarData = userData
 					? userData.data.data.map(item => ({
@@ -42,7 +42,7 @@ const RadarPerformance = () => {
 					  }))
 					: [];
 
-				console.log('radarData', radarData);
+				// console.log('radarData', radarData);
 				setPerformanceData(radarData);
 			} catch (error) {
 				setError('Erreur lors de la récupération des performances utilisateur');
