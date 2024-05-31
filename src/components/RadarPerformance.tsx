@@ -33,13 +33,13 @@ const RadarPerformance = () => {
 				const userData = await getUserPerformance(id);
 				console.log('userData', userData);
 
-				const transformedData = userData.data.map(item => ({
+				const radarData = userData.data.map(item => ({
 					subject: userData.kind[item.kind],
 					value: item.value,
 				}));
 
-				setPerformanceData(transformedData);
-				console.log('transformedData', transformedData);
+				setPerformanceData(radarData);
+				// console.log('radarData', radarData);
 			} catch (error) {
 				setError('Erreur lors de la récupération des performances utilisateur');
 				console.error('Error fetching user performance data:', error);

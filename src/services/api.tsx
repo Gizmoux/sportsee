@@ -35,6 +35,8 @@ export const getUserAverageSession = async id => {
 export const getUserPerformance = async id => {
 	try {
 		const response = await axios.get(`${API_URL}/user/${id}/performance`);
+		console.log('response.data dans API', response.data);
+
 		return response.data;
 	} catch (error) {
 		console.error('Error fetching user performance by ID:', error);
