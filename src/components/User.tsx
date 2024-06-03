@@ -63,9 +63,7 @@ const User = () => {
 						{user ? user.userInfos.firstName : error}
 					</span>
 				</h1>
-				<h2>
-					Félicitations ! Vous avez explosé vos objectifs hier DONNEES API
-				</h2>
+				<h2>Félicitations ! Vous avez explosé vos objectifs hier</h2>
 			</div>
 		</div>
 	);
