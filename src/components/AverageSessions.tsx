@@ -27,9 +27,9 @@ const AverageSessions = () => {
 		const fetchUserAverageSession = async () => {
 			try {
 				const userData = await getUserAverageSession(id);
-				console.log('userData.data', userData.data);
-				console.log('userData.data.sessions', userData.data.sessions);
-				console.log('userData.data.days', userData.data.days);
+				// console.log('userData.data', userData.data);
+				// console.log('userData.data.sessions', userData.data.sessions);
+				// console.log('userData.data.days', userData.data.days);
 
 				// Formatage des données
 				const formattedData = userData
@@ -38,7 +38,7 @@ const AverageSessions = () => {
 							average: session.sessionLength,
 					  }))
 					: [];
-				console.log('formattedData');
+				// console.log('formattedData');
 
 				setAverageSessionData(formattedData);
 			} catch (error) {

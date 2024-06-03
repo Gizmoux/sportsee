@@ -9,6 +9,7 @@
 }
 
 .main-content {
+	margin: 70px;
 	display: flex;
 	flex-direction: column;
 }
