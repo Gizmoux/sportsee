@@ -26,7 +26,10 @@ import '../style/User.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getUserById } from '../services/api';
-
+/**
+ * Sert à afficher les informations d'un utilisateur
+ * @returns {JSX.Element} Élément React représentant le composant User.
+ */
 const User = () => {
 	const { id } = useParams();
 	const [user, setUser] = useState(null);
