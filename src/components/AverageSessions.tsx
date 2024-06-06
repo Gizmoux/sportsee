@@ -2,7 +2,7 @@ import '../style/AverageSessions.css';
 // import { USER_AVERAGE_SESSIONS } from '../mock/mockData';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Scatter } from 'recharts';
 import { getUserAverageSession } from '../services/api';
 
 const AverageSessions = () => {
@@ -81,7 +81,6 @@ const AverageSessions = () => {
 					tickLine={false}
 					tick={{ fill: 'white' }}
 				/>
-
 				<YAxis domain={['dataMin - 20', 'dataMax + 45']} hide={true} />
 				<Tooltip
 					offset={30}
@@ -95,6 +94,7 @@ const AverageSessions = () => {
 					strokeWidth={2}
 					dot={false}
 				/>
+				<Scatter dataKey="average" fill="black" />
 			</LineChart>
 		</div>
 	);

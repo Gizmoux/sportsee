@@ -1,11 +1,16 @@
 .average {
 	background-color: #e60001;
 	height: 300px;
+	border-radius: 5px;
+	margin-right: 20px;
+	padding: 10px;
 }
 h4 {
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
+	font-weight: 200;
 	font-style: normal;
+	color: white;
+	margin: 20px 0px 0px 20px;
 }
 .average-tooltip {
 	height: 34px;
