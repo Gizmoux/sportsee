@@ -66,9 +66,9 @@ const RadarPerformance = () => {
 		<div className="radar-container">
 			{/* <h1>RadarID {id}</h1> */}
 			<RadarChart
-				innerRadius="0"
-				outerRadius="50%"
-				width={260}
+				innerRadius="10"
+				outerRadius="60%"
+				width={280}
 				height={250}
 				data={performanceData}
 			>

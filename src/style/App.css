@@ -1,6 +1,7 @@
 .app-container {
 	display: flex;
 	flex-direction: column;
+	max-width: 100%;
 }
 
 .content {
@@ -9,7 +10,7 @@
 }
 
 .main-content {
-	margin: 70px;
+	margin: 50px;
 	display: flex;
 	flex-direction: column;
 }
@@ -22,7 +23,7 @@
 .infos-container {
 	display: flex;
 	width: 100%;
-	margin-top: 15%;
+	margin-top: 5%;
 }
 
 .nutrients {
