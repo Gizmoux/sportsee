@@ -19,28 +19,28 @@ const Nutrient = () => {
 			{/* <h1>ID user{id}</h1> */}
 			<div className="nutrient">
 				<img src={calories} alt="Calories" />
-				<div>
+				<div className="nutrient-para">
 					<p>{calorieCount / 1000}kCal</p>
 					<span>Calories</span>
 				</div>
 			</div>
 			<div className="nutrient">
 				<img src={proteins} alt="Protéines" />
-				<div>
+				<div className="nutrient-para">
 					<p>{proteinCount}g</p>
 					<span>Protéines</span>
 				</div>
 			</div>
 			<div className="nutrient">
 				<img src={glucides} alt="Glucides" />
-				<div>
+				<div className="nutrient-para">
 					<p>{carbohydrateCount}g</p>
 					<span>Glucides</span>
 				</div>
 			</div>
 			<div className="nutrient">
 				<img src={lipides} alt="Lipides" />
-				<div>
+				<div className="nutrient-para">
 					<p>{lipidCount}g</p>
 					<span>Lipides</span>
 				</div>

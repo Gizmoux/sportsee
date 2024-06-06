@@ -15,7 +15,14 @@
 	align-items: center;
 	align-content: center;
 }
+
 .nutrient img {
 	width: 60px;
 	height: 60px;
+}
+.nutrient-para p {
+	font-weight: bold;
+}
+.nutrient-para span {
+	color: #74798c;
 }
