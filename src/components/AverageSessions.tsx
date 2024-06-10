@@ -73,7 +73,7 @@ const AverageSessions = () => {
 		<div className="average">
 			<h4>Durée moyenne des sessions</h4>
 
-			<LineChart width={260} height={250} data={averageSessionData}>
+			<LineChart width={260} height={200} data={averageSessionData}>
 				{/* <CartesianGrid /> */}
 				<XAxis
 					dataKey="name"

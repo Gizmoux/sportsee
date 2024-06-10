@@ -4,14 +4,10 @@ const Home = () => {
 	return (
 		<div>
 			<button className="navlink-button">
-				<NavLink to="http://localhost:5173/user/12/activity">
-					Activity 12
-				</NavLink>
+				<NavLink to="http://localhost:5173/user/12/activity">Karl</NavLink>
 			</button>
 			<button className="navlink-button">
-				<NavLink to="http://localhost:5173/user/18/activity">
-					Activity 18
-				</NavLink>
+				<NavLink to="http://localhost:5173/user/18/activity">Cecilia</NavLink>
 			</button>
 		</div>
 	);

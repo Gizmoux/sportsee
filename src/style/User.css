@@ -11,3 +11,8 @@
 .user-name-span {
 	color: #fa1901;
 }
+h2 {
+	font-family: Roboto, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
