@@ -47,10 +47,18 @@ function App() {
 											path="/user/:id/activity"
 											element={<AverageSessions />}
 										/>
+										<Route
+											path="/user/:id/average-sessions"
+											element={<AverageSessions />}
+										/>
 									</Routes>
 									<Routes>
 										<Route
 											path="/user/:id/activity"
+											element={<RadarPerformance />}
+										/>
+										<Route
+											path="/user/:id/performance"
 											element={<RadarPerformance />}
 										/>
 									</Routes>

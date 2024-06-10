@@ -3,6 +3,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	margin-top: 200px;
+	margin-left: 15px;
 	height: 100%;
 	width: 100%;
 }
@@ -10,6 +11,7 @@
 	display: flex;
 	/* background: green; */
 	width: 200px;
+	height: 100px;
 	background: #fbfbfb;
 	justify-content: space-around;
 	align-items: center;
