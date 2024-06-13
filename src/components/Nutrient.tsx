@@ -8,7 +8,6 @@ import '../style/Nutrient.css';
 const Nutrient = () => {
 	const { id } = useParams();
 	const userData = USER_MAIN_DATA.find(user => user.id.toString() === id);
-
 	const calorieCount = userData ? userData.keyData.calorieCount : 0;
 	const proteinCount = userData ? userData.keyData.proteinCount : 0;
 	const carbohydrateCount = userData ? userData.keyData.carbohydrateCount : 0;
@@ -16,7 +15,6 @@ const Nutrient = () => {
 
 	return (
 		<div className="nutrient-container">
-			{/* <h1>ID user{id}</h1> */}
 			<div className="nutrient">
 				<img src={calories} alt="Calories" />
 				<div className="nutrient-para">
