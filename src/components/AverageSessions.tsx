@@ -2,18 +2,10 @@ import '../style/AverageSessions.css';
 // import { USER_AVERAGE_SESSIONS } from '../mock/mockData';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import {
-	LineChart,
-	Line,
-	XAxis,
-	YAxis,
-	Tooltip,
-	Scatter,
-	ResponsiveContainer,
-} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Scatter } from 'recharts';
 import { getUserAverageSession } from '../services/api';
 interface CustomizedTooltipProps {
-	payload: { value: number; day: number }[];
+	payload: { value: number }[];
 }
 interface UserAverageSessionData {
 	data: {
@@ -78,7 +70,7 @@ const AverageSessions = () => {
 	if (error) return <div>{error}</div>;
 	const CustomizedTooltip = ({ payload }: CustomizedTooltipProps) => {
 		if (!payload) return null;
-		console.log(payload);
+		// console.log(payload);
 		return (
 			<div className="average-tooltip">
 				{payload.map((elem, idx) => (
@@ -86,7 +78,6 @@ const AverageSessions = () => {
 						<p>{elem.value} min</p>
 					</div>
 				))}
-				{/* <p>{payload.value} min</p> */}
 			</div>
 		);
 	};
