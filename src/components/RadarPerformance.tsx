@@ -6,8 +6,7 @@ import {
 	RadarChart,
 	PolarGrid,
 	PolarAngleAxis,
-	PolarRadiusAxis,
-	Legend,
+	ResponsiveContainer,
 } from 'recharts';
 import { useParams } from 'react-router-dom';
 // import { USER_PERFORMANCE } from '../mock/mockData';
@@ -39,6 +38,7 @@ const RadarPerformance = () => {
 					? userData.data.data.map(item => ({
 							subject: userData.data.kind[item.kind],
 							value: item.value,
+							// eslint-disable-next-line
 					  }))
 					: [];
 
@@ -65,6 +65,7 @@ const RadarPerformance = () => {
 	return (
 		<div className="radar-container">
 			{/* <h1>RadarID {id}</h1> */}
+
 			<RadarChart
 				innerRadius="10"
 				outerRadius="60%"
