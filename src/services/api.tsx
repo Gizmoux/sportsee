@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:3000';
 
-export const getUserById = async id => {
+export const getUserById = async (id: number) => {
 	try {
 		const response = await axios.get(`${API_URL}/user/${id}`);
 		return response.data;
@@ -12,7 +12,7 @@ export const getUserById = async id => {
 	}
 };
 
-export const getUserActivityById = async id => {
+export const getUserActivityById = async (id: number) => {
 	try {
 		const response = await axios.get(`${API_URL}/user/${id}/activity`);
 		return response.data;
@@ -22,7 +22,7 @@ export const getUserActivityById = async id => {
 	}
 };
 
-export const getUserAverageSession = async id => {
+export const getUserAverageSession = async (id: number) => {
 	try {
 		const response = await axios.get(`${API_URL}/user/${id}/average-sessions`);
 		return response.data;
@@ -32,7 +32,7 @@ export const getUserAverageSession = async id => {
 	}
 };
 
-export const getUserPerformance = async id => {
+export const getUserPerformance = async (id: number) => {
 	try {
 		const response = await axios.get(`${API_URL}/user/${id}/performance`);
 		// console.log('response.data dans API', response.data);
