@@ -2,16 +2,34 @@ import '../style/AverageSessions.css';
 // import { USER_AVERAGE_SESSIONS } from '../mock/mockData';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, Scatter } from 'recharts';
+import {
+	LineChart,
+	Line,
+	XAxis,
+	YAxis,
+	Tooltip,
+	Scatter,
+	ResponsiveContainer,
+} from 'recharts';
 import { getUserAverageSession } from '../services/api';
-
+interface CustomizedTooltipProps {
+	payload: { value: number; day: number }[];
+}
+interface UserAverageSessionData {
+	data: {
+		sessions: { day: number; sessionLength: number }[];
+		days: string[];
+	};
+}
+interface FormattedSessionData {
+	name: string;
+	average: number;
+}
 const AverageSessions = () => {
 	// const { id } = useParams();
-
 	// const userData = USER_AVERAGE_SESSIONS.find(
 	// 	user => user.userId.toString() === id
 	// );
-
 	// const data = userData
 	// 	? userData.sessions.map(session => ({
 	// 			name: userData.days[session.day],
@@ -19,14 +37,18 @@ const AverageSessions = () => {
 	// 	  }))
 	// 	: [];
 	const { id } = useParams();
-	const [averageSessionData, setAverageSessionData] = useState([]);
+	const [averageSessionData, setAverageSessionData] = useState<
+		FormattedSessionData[]
+	>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
 		const fetchUserAverageSession = async () => {
 			try {
-				const userData = await getUserAverageSession(id);
+				const userData: UserAverageSessionData = await getUserAverageSession(
+					id
+				);
 				// console.log('userData.data', userData.data);
 				// console.log('userData.data.sessions', userData.data.sessions);
 				// console.log('userData.data.days', userData.data.days);
@@ -42,10 +64,8 @@ const AverageSessions = () => {
 
 				setAverageSessionData(formattedData);
 			} catch (error) {
-				setError(
-					'Erreur lors de la récupération des sessions moyennes utilisateur'
-				);
-				console.error('Error fetching user average session data:', error);
+				setError('Erreur de récupération des données');
+				console.error('Erreur du fetch', error);
 			} finally {
 				setLoading(false);
 			}
@@ -54,15 +74,16 @@ const AverageSessions = () => {
 		fetchUserAverageSession();
 	}, [id]);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading) return <div>Chargement...</div>;
 	if (error) return <div>{error}</div>;
-	const CustomizedTooltip: React.FC<CustomizedTooltipProps> = ({ payload }) => {
+	const CustomizedTooltip = ({ payload }: CustomizedTooltipProps) => {
 		if (!payload) return null;
+		console.log(payload);
 		return (
 			<div className="average-tooltip">
-				{payload.map((category: any, idx: React.Key | null | undefined) => (
+				{payload.map((elem, idx) => (
 					<div key={idx}>
-						<p>{category.value} min</p>
+						<p>{elem.value} min</p>
 					</div>
 				))}
 				{/* <p>{payload.value} min</p> */}
