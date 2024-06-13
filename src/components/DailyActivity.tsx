@@ -5,7 +5,9 @@ import { getUserActivityById } from '../services/api';
 import { useParams } from 'react-router-dom';
 import User from './User';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-
+interface CustomizedTooltipProps {
+	payload: { value: string }[];
+}
 const DailyActivity = () => {
 	// const { id } = useParams();
 
@@ -51,15 +53,10 @@ const DailyActivity = () => {
 		fetchUserActivity();
 	}, [id]);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading) return <div>Chargement...</div>;
 	if (error) return <div>{error}</div>;
 
-	/**
-	 * Custom tooltip component to display weight and calories on hover.
-	 * @param {CustomizedTooltipProps} props - The tooltip props object.
-	 * @returns {JSX.Element} - The JSX element representing the custom tooltip.
-	 */
-	const CustomizedTooltip: React.FC<CustomizedTooltipProps> = ({ payload }) => {
+	const CustomizedTooltip = ({ payload }: CustomizedTooltipProps) => {
 		if (payload && payload.length) {
 			return (
 				<div className="daily-tooltip">
