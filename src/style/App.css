@@ -27,8 +27,7 @@
 }
 
 .nutrients {
-	background-color: aquamarine;
-	color: red;
+	/* background-color: aquamarine; */
 	display: flex;
 	flex-direction: column;
 }
