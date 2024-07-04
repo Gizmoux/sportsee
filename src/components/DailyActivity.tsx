@@ -8,6 +8,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 interface CustomizedTooltipProps {
 	payload: { value: string }[];
 }
+interface ActivitySession {
+	day: string;
+	kilogram: number;
+	calories: number;
+}
 const DailyActivity = () => {
 	// const { id } = useParams();
 
@@ -32,19 +37,46 @@ const DailyActivity = () => {
 		const fetchUserActivity = async () => {
 			try {
 				const userData = await getUserActivityById(id);
-				// console.log('userData dans DailyActivity', userData.data.sessions);
-				// Formatage des données pour Recharts
 				const formattedData = userData
-					? userData.data.sessions.map(session => ({
-							name: session.day,
-							kilograms: session.kilogram,
-							calories: session.calories,
-					  }))
+					? userData.data.sessions.map((session: ActivitySession) => {
+							let day = '';
+							switch (session.day) {
+								case '2020-07-01':
+									day = 'L';
+									break;
+								case '2020-07-02':
+									day = 'M';
+									break;
+								case '2020-07-03':
+									day = 'M';
+									break;
+								case '2020-07-04':
+									day = 'J';
+									break;
+								case '2020-07-05':
+									day = 'V';
+									break;
+								case '2020-07-06':
+									day = 'S';
+									break;
+								case '2020-07-07':
+									day = 'D';
+									break;
+								default:
+									day = session.day;
+							}
+							return {
+								name: day,
+								kilograms: session.kilogram,
+								calories: session.calories,
+							};
+							// eslint-disable-next-line no-mixed-spaces-and-tabs
+					  })
 					: [];
 
 				setActivityData(formattedData);
 			} catch (error) {
-				setError('Erreur');
+				setError('Une erreur est survenue');
 			} finally {
 				setLoading(false);
 			}
@@ -104,7 +136,7 @@ const DailyActivity = () => {
 					<Tooltip
 						cursor={{ stroke: '#dfdfdf', strokeWidth: 2 }}
 						allowEscapeViewBox={{ x: true, y: true }}
-						content={<CustomizedTooltip />}
+						content={<CustomizedTooltip payload={[]} />}
 					/>
 					<Bar
 						dataKey="kilograms"
