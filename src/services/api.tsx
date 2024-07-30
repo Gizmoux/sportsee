@@ -7,7 +7,7 @@ export const getUserById = async (id: number) => {
 		const response = await axios.get(`${API_URL}/user/${id}`);
 		return response.data;
 	} catch (error) {
-		console.error('Error fetching user by ID:', error);
+		console.error('Error to fetch userID', error);
 		throw error;
 	}
 };
@@ -17,7 +17,7 @@ export const getUserActivityById = async (id: number) => {
 		const response = await axios.get(`${API_URL}/user/${id}/activity`);
 		return response.data;
 	} catch (error) {
-		console.error('Error fetching user activity by ID:', error);
+		console.error('Error to fetch ActivityID', error);
 		throw error;
 	}
 };
@@ -27,7 +27,7 @@ export const getUserAverageSession = async (id: number) => {
 		const response = await axios.get(`${API_URL}/user/${id}/average-sessions`);
 		return response.data;
 	} catch (error) {
-		console.error('Error fetching user average session by ID:', error);
+		console.error('Error to fetch SessionID', error);
 		throw error;
 	}
 };
@@ -39,7 +39,7 @@ export const getUserPerformance = async (id: number) => {
 
 		return response.data;
 	} catch (error) {
-		console.error('Error fetching user performance by ID:', error);
+		console.error('Error to fetch PerformanceID', error);
 		throw error;
 	}
 };
