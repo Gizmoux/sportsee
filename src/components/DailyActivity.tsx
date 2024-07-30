@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import '../style/DailyActivity.css';
 import { useEffect, useState } from 'react';
 import { getUserActivityById } from '../services/api';
@@ -70,7 +71,6 @@ const DailyActivity = () => {
 								kilograms: session.kilogram,
 								calories: session.calories,
 							};
-							// eslint-disable-next-line no-mixed-spaces-and-tabs
 					  })
 					: [];
 
@@ -132,6 +132,7 @@ const DailyActivity = () => {
 						tickSize={30}
 						tickLine={false}
 					/>
+
 					{/* <Legend /> */}
 					<Tooltip
 						cursor={{ stroke: '#dfdfdf', strokeWidth: 2 }}
