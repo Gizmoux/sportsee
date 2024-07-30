@@ -15,24 +15,10 @@ interface ActivitySession {
 	calories: number;
 }
 const DailyActivity = () => {
-	// const { id } = useParams();
-
-	// Trouver les données de l'utilisateur correspondant à l'ID
-	// const userData = USER_ACTIVITY.find(user => user.userId.toString() === id);
-
-	// Formatage des données pour Recharts
-	// const data = userData
-	// 	? userData.sessions.map(session => ({
-	// 			name: session.day,
-	// 			kilograms: session.kilogram,
-	// 			calories: session.calories,
-	// 	  }))
-	// 	: [];
-
 	const { id } = useParams();
 	const [activityData, setActivityData] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [error] = useState(null);
 
 	useEffect(() => {
 		const fetchUserActivity = async () => {
@@ -76,7 +62,8 @@ const DailyActivity = () => {
 
 				setActivityData(formattedData);
 			} catch (error) {
-				setError('Une erreur est survenue');
+				// setError('Une erreur est survenue');
+				console.log(error);
 			} finally {
 				setLoading(false);
 			}
@@ -161,3 +148,18 @@ const DailyActivity = () => {
 };
 
 export default DailyActivity;
+
+// En dessous de const Daily...
+// const { id } = useParams();
+
+// Trouver les données de l'utilisateur correspondant à l'ID
+// const userData = USER_ACTIVITY.find(user => user.userId.toString() === id);
+
+// Formatage des données pour Recharts
+// const data = userData
+// 	? userData.sessions.map(session => ({
+// 			name: session.day,
+// 			kilograms: session.kilogram,
+// 			calories: session.calories,
+// 	  }))
+// 	: [];

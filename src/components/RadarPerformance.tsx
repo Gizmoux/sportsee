@@ -6,15 +6,6 @@ import { useParams } from 'react-router-dom';
 // import { USER_PERFORMANCE } from '../mock/mockData';
 import '../style/RadarPerformance.css';
 const RadarPerformance = () => {
-	// const { id } = useParams();
-	// const userData = USER_PERFORMANCE.find(user => user.userId.toString() === id);
-	// // Transformer les données de userData pour les adapter au format attendu par RadarChart
-	// const data = userData
-	// 	? userData.data.map(item => ({
-	// 			subject: userData.kind[item.kind],
-	// 			value: item.value,
-	// 	  }))
-	// 	: [];
 	const { id } = useParams();
 	const [performanceData, setPerformanceData] = useState([]);
 	const [error, setError] = useState(null);
@@ -24,9 +15,6 @@ const RadarPerformance = () => {
 		const fetchUserPerformance = async () => {
 			try {
 				const userData = await getUserPerformance(id);
-				// console.log('userData dans radarPerf', userData);
-				// console.log('userData.data.kind', userData.data.kind);
-				// console.log('userData.data.data', userData.data.data);
 
 				const radarData = userData
 					? userData.data.data.map(item => ({
@@ -39,7 +27,7 @@ const RadarPerformance = () => {
 				// console.log('radarData', radarData);
 				setPerformanceData(radarData);
 			} catch (error) {
-				setError('Erreur lors de la récupération des performances utilisateur');
+				// setError('Erreur lors de la récupération des performances utilisateur');
 				console.error('Error fetching user performance data:', error);
 			} finally {
 				setLoading(false);
@@ -91,3 +79,14 @@ const RadarPerformance = () => {
 };
 
 export default RadarPerformance;
+
+// En dessous de const radarPerf..
+// const { id } = useParams();
+// const userData = USER_PERFORMANCE.find(user => user.userId.toString() === id);
+// // Transformer les données de userData pour les adapter au format attendu par RadarChart
+// const data = userData
+// 	? userData.data.map(item => ({
+// 			subject: userData.kind[item.kind],
+// 			value: item.value,
+// 	  }))
+// 	: [];

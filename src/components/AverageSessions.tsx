@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Scatter } from 'recharts';
 import { getUserAverageSession } from '../services/api';
 interface CustomizedTooltipProps {
+	active?: boolean;
 	payload: { value: number }[];
 }
 interface UserAverageSessionData {
@@ -19,22 +20,12 @@ interface FormattedSessionData {
 	average: number;
 }
 const AverageSessions = () => {
-	// const { id } = useParams();
-	// const userData = USER_AVERAGE_SESSIONS.find(
-	// 	user => user.userId.toString() === id
-	// );
-	// const data = userData
-	// 	? userData.sessions.map(session => ({
-	// 			name: userData.days[session.day],
-	// 			average: session.sessionLength,
-	// 	  }))
-	// 	: [];
 	const { id } = useParams();
 	const [averageSessionData, setAverageSessionData] = useState<
 		FormattedSessionData[]
 	>([]);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState('');
 
 	useEffect(() => {
 		const fetchUserAverageSession = async () => {
@@ -42,10 +33,6 @@ const AverageSessions = () => {
 				const userData: UserAverageSessionData = await getUserAverageSession(
 					id
 				);
-				// console.log('userData.data', userData.data);
-				// console.log('userData.data.sessions', userData.data.sessions);
-				// console.log('userData.data.days', userData.data.days);
-
 				// Formatage des données
 				const formattedData = userData
 					? userData.data.sessions.map(session => ({
@@ -69,16 +56,13 @@ const AverageSessions = () => {
 
 	if (loading) return <div>Chargement...</div>;
 	if (error) return <div>{error}</div>;
-	const CustomizedTooltip = ({ payload }: CustomizedTooltipProps) => {
-		if (!payload) return null;
-		// console.log(payload);
+
+	const CustomizedTooltip = ({ active, payload }: CustomizedTooltipProps) => {
+		if (!active || !payload || payload.length === 0) return null;
+
 		return (
 			<div className="average-tooltip">
-				{payload.map((elem, idx) => (
-					<div key={idx}>
-						<p>{elem.value} min</p>
-					</div>
-				))}
+				<p>{payload[0].value} min</p>
 			</div>
 		);
 	};
@@ -114,3 +98,29 @@ const AverageSessions = () => {
 };
 
 export default AverageSessions;
+
+// Juste en dessous de const Average
+// const { id } = useParams();
+// const userData = USER_AVERAGE_SESSIONS.find(
+// 	user => user.userId.toString() === id
+// );
+// const data = userData
+// 	? userData.sessions.map(session => ({
+// 			name: userData.days[session.day],
+// 			average: session.sessionLength,
+// 	  }))
+// 	: [];
+
+// const CustomizedTooltip = ({ payload }: CustomizedTooltipProps) => {
+// 	if (!payload) return null;
+// 	// console.log(payload);
+// 	return (
+// 		<div className="average-tooltip">
+// 			{payload.map((elem, idx) => (
+// 				<div key={idx}>
+// 					<p>{elem.value} min</p>
+// 				</div>
+// 			))}
+// 		</div>
+// 	);
+// };

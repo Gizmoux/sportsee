@@ -1,13 +1,18 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable no-mixed-spaces-and-tabs */
 import '../style/Kpi.css';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import { useParams } from 'react-router-dom';
 import { USER_MAIN_DATA } from '../mock/mockData';
+interface DataItem {
+	value: number;
+}
 
-export const KPI = () => {
+const KPI = () => {
 	const { id } = useParams();
 
 	const userData = USER_MAIN_DATA.find(user => user.id.toString() === id);
-	let data = [];
+	let data: DataItem[] = [];
 
 	if (userData) {
 		data =
@@ -44,3 +49,4 @@ export const KPI = () => {
 		</div>
 	);
 };
+export default KPI;
