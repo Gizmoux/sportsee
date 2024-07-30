@@ -34,11 +34,11 @@ export default {
 # Backend (tableau-analytics-backend)
 
 - git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
-- yarn install # Install all dependencies
-- yarn dev # Start the backend server on port 3000
+- yarn install `Install all dependencies `
+- yarn dev `Start the backend server on port 3000`
 
 # Frontend
 
 - git clone https://github.com/Gizmoux/sportsee.git
-- npm install # Install all dependencies
-- npm run dev # Start the frontend development on port 5173
+- npm install `Install all dependencies`
+- npm run dev `Start the frontend development on port 5173`
