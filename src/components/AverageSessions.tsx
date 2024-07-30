@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import '../style/AverageSessions.css';
 // import { USER_AVERAGE_SESSIONS } from '../mock/mockData';
 import { useParams } from 'react-router-dom';
@@ -56,7 +57,7 @@ const AverageSessions = () => {
 
 				setAverageSessionData(formattedData);
 			} catch (error) {
-				setError('Erreur de récupération des données');
+				setError('fetch error');
 				console.error('Erreur du fetch', error);
 			} finally {
 				setLoading(false);
@@ -97,7 +98,7 @@ const AverageSessions = () => {
 				<Tooltip
 					offset={30}
 					cursor={{ stroke: '#dfdfdf', strokeWidth: 0 }}
-					content={<CustomizedTooltip />}
+					content={<CustomizedTooltip payload={[]} />}
 				/>
 				<Line
 					type="monotone"
