@@ -1,13 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getUserPerformance } from '../services/api';
 
-import {
-	Radar,
-	RadarChart,
-	PolarGrid,
-	PolarAngleAxis,
-	ResponsiveContainer,
-} from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 import { useParams } from 'react-router-dom';
 // import { USER_PERFORMANCE } from '../mock/mockData';
 import '../style/RadarPerformance.css';
