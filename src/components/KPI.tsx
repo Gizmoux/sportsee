@@ -3,7 +3,7 @@ import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import { useParams } from 'react-router-dom';
 import { USER_MAIN_DATA } from '../mock/mockData';
 
-const KPI = () => {
+export const KPI = () => {
 	const { id } = useParams();
 
 	const userData = USER_MAIN_DATA.find(user => user.id.toString() === id);
@@ -44,4 +44,3 @@ const KPI = () => {
 		</div>
 	);
 };
-export default KPI;
