@@ -58,7 +58,7 @@ const AverageSessions = () => {
 				setAverageSessionData(formattedData);
 			} catch (error) {
 				setError('fetch error');
-				console.error('Erreur du fetch', error);
+				console.error('fetch error', error);
 			} finally {
 				setLoading(false);
 			}
