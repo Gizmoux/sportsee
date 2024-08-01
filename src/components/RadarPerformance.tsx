@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getUserPerformance } from '../services/api';
-
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 import { useParams } from 'react-router-dom';
 // import { USER_PERFORMANCE } from '../mock/mockData';
@@ -8,7 +7,7 @@ import '../style/RadarPerformance.css';
 const RadarPerformance = () => {
 	const { id } = useParams();
 	const [performanceData, setPerformanceData] = useState([]);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -27,7 +26,7 @@ const RadarPerformance = () => {
 				// console.log('radarData', radarData);
 				setPerformanceData(radarData);
 			} catch (error) {
-				// setError('Erreur lors de la récupération des performances utilisateur');
+				setError('Erreur lors de la récupération des performances utilisateur');
 				console.error('Error fetching user performance data:', error);
 			} finally {
 				setLoading(false);

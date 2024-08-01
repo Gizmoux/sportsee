@@ -1,47 +1,24 @@
-//!MOCK DES DONNEES
-// import '../style/User.css';
-// import { useParams } from 'react-router-dom';
-// import { USER_MAIN_DATA } from '../mock/mockData';
-// const User = () => {
-// 	const { id } = useParams();
-// 	const user = USER_MAIN_DATA.find(user => user.id.toString() === id);
-// 	return (
-// 		<div className="user-container">
-// 			<div>
-// 				<h1>
-// 					Bonjour{' '}
-// 					<span className="user-name-span">
-// 						{user ? user.userInfos.firstName : 'Utilisateur inconnu'}
-// 					</span>
-// 				</h1>
-
-// 				<h2>Félicitations ! Vous avez explosé vos objectifs hier </h2>
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default User;
 import '../style/User.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getUserById } from '../services/api';
-/**
- * Sert à afficher les informations d'un utilisateur
- * @returns {JSX.Element} Élément React représentant le composant User.
- */
+interface User {
+	userInfos: {
+		firstName: string;
+	};
+}
 const User = () => {
 	const { id } = useParams();
-	const [user, setUser] = useState(null);
-	const [error, setError] = useState(null);
+	const [user, setUser] = useState<User | null>(null);
+	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchUser = async () => {
 			try {
-				const userData = await getUserById(id);
+				const userData = await getUserById(Number(id));
 				setUser(userData.data);
-				// console.log('userData', userData.data);
+				console.log('userData', userData.data);
 			} catch (error) {
 				setError('Utilisateur inconnu');
 				console.error('Error fetching user data:', error);
@@ -73,3 +50,6 @@ const User = () => {
 };
 
 export default User;
+// en dessous const user
+// 	const { id } = useParams();
+// 	const user = USER_MAIN_DATA.find(user => user.id.toString() === id);

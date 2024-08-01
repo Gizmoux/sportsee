@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable no-mixed-spaces-and-tabs */
 import '../style/Kpi.css';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import { useParams } from 'react-router-dom';
