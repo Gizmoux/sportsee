@@ -33,9 +33,10 @@ const AverageSessions = () => {
 				const userData: UserAverageSessionData = await getUserAverageSession(
 					id
 				);
+				console.log('Received userData:', userData);
 				// Formatage des données
 				const formattedData = userData
-					? userData.data.sessions.map(session => ({
+					? userData?.data.sessions.map(session => ({
 							name: userData.data.days[session.day],
 							average: session.sessionLength,
 					  }))
