@@ -215,7 +215,7 @@ export const USER_PERFORMANCE = [
 	{
 		userId: 12,
 		kind: {
-			1: 'Cardio',
+			1: 'CardioM',
 			2: 'Energie',
 			3: 'Endurance',
 			4: 'Force',
@@ -252,7 +252,7 @@ export const USER_PERFORMANCE = [
 	{
 		userId: 18,
 		kind: {
-			1: 'Cardio',
+			1: 'CardioM',
 			2: 'Energie',
 			3: 'Endurance',
 			4: 'Force',
