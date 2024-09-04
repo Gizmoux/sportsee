@@ -25,27 +25,34 @@ const DailyActivity = () => {
 			try {
 				const userData = await getUserActivityById(id);
 				const formattedData = userData
-					? userData.data.sessions.map((session: ActivitySession) => {
+					? userData.data?.sessions.map((session: ActivitySession) => {
 							let day = '';
 							switch (session.day) {
+								case '1':
 								case '2020-07-01':
 									day = 'L';
 									break;
+								case '2':
 								case '2020-07-02':
 									day = 'M';
 									break;
+								case '3':
 								case '2020-07-03':
 									day = 'M';
 									break;
+								case '4':
 								case '2020-07-04':
 									day = 'J';
 									break;
+								case '5':
 								case '2020-07-05':
 									day = 'V';
 									break;
+								case '6':
 								case '2020-07-06':
 									day = 'S';
 									break;
+								case '7':
 								case '2020-07-07':
 									day = 'D';
 									break;
