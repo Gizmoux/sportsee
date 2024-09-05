@@ -23,7 +23,7 @@ const DailyActivity = () => {
 	useEffect(() => {
 		const fetchUserActivity = async () => {
 			try {
-				const userData = await getUserActivityById(id);
+				const userData = await getUserActivityById(Number(id));
 				const formattedData = userData
 					? userData.data?.sessions.map((session: ActivitySession) => {
 							let day = '';

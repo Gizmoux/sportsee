@@ -16,8 +16,8 @@ const KPI = () => {
 	if (userData) {
 		data =
 			'todayScore' in userData
-				? [{ value: userData.todayScore }]
-				: [{ value: userData.score }];
+				? [{ value: userData.todayScore as number }]
+				: [{ value: userData.score as number }];
 	}
 
 	return (

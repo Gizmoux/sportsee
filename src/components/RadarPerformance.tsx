@@ -4,6 +4,10 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 import { useParams } from 'react-router-dom';
 // import { USER_PERFORMANCE } from '../mock/mockData';
 import '../style/RadarPerformance.css';
+interface PerformanceItem {
+	kind: number;
+	value: number;
+}
 const RadarPerformance = () => {
 	const { id } = useParams();
 	const [performanceData, setPerformanceData] = useState([]);
@@ -13,10 +17,10 @@ const RadarPerformance = () => {
 	useEffect(() => {
 		const fetchUserPerformance = async () => {
 			try {
-				const userData = await getUserPerformance(id);
+				const userData = await getUserPerformance(Number(id));
 
 				const radarData = userData
-					? userData.data.data.map(item => ({
+					? userData.data.data.map((item: PerformanceItem) => ({
 							subject: userData.data.kind[item.kind],
 							value: item.value,
 							// eslint-disable-next-line

@@ -31,7 +31,7 @@ const AverageSessions = () => {
 		const fetchUserAverageSession = async () => {
 			try {
 				const userData: UserAverageSessionData = await getUserAverageSession(
-					id
+					Number(id)
 				);
 				console.log('Received userData:', userData);
 				// Formatage des données
