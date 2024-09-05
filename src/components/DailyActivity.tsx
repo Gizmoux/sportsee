@@ -121,6 +121,7 @@ const DailyActivity = () => {
 						tickLine={false}
 					/>
 					<YAxis
+						dataKey="calories"
 						orientation="right"
 						axisLine={false}
 						tickSize={30}

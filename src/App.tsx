@@ -10,8 +10,6 @@ import KPI from './components/KPI';
 import Nutrient from './components/Nutrient';
 import User from './components/User';
 import Home from './components/Home';
-// import Product from './pages/Product';
-// import About from './pages/About';
 
 function App() {
 	return (
@@ -22,8 +20,6 @@ function App() {
 				<div className="content">
 					<LeftNavbar />
 					<div className="main-content">
-						{/* <User /> */}
-
 						<Routes>
 							<Route path="/profil" element={<Home />} />
 						</Routes>
@@ -33,7 +29,6 @@ function App() {
 						</Routes>
 						<div className="main-container">
 							<div>
-								{/* <DailyActivity /> */}
 								<Routes>
 									<Route
 										path="/user/:id/activity"

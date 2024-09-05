@@ -31,7 +31,6 @@ const RadarPerformance = () => {
 				setPerformanceData(radarData);
 			} catch (error) {
 				setError('Erreur lors de la récupération des performances utilisateur');
-				console.error('Error fetching user performance data:', error);
 			} finally {
 				setLoading(false);
 			}
@@ -49,8 +48,6 @@ const RadarPerformance = () => {
 	}
 	return (
 		<div className="radar-container">
-			{/* <h1>RadarID {id}</h1> */}
-
 			<RadarChart
 				innerRadius="10"
 				outerRadius="60%"
@@ -74,8 +71,6 @@ const RadarPerformance = () => {
 					fill="#FF0101B2"
 					fillOpacity={0.7}
 				/>
-
-				{/* <Legend /> */}
 			</RadarChart>
 		</div>
 	);
