@@ -24,25 +24,22 @@ export const getUserActivityById = async (id: number) => {
 	console.log('USE_MOCK_DATA:', USE_MOCK_DATA);
 	if (USE_MOCK_DATA) {
 		console.log("Utilisation des données mockées pour l'activité");
-		return getMockUserActivityById(id);
+		return getMockUserActivity(id);
 	}
 
 	try {
 		const response = await axios.get(`${API_URL}/user/${id}/activity`);
 		return response.data;
 	} catch (error) {
-		console.error(
-			'Error fetching activity from API, falling back to mock data',
-			error
-		);
-		return getMockUserActivityById(id);
+		console.error('Error fetch api -> Mock datas', error);
+		return getMockUserActivity(id);
 	}
 };
 
-const getMockUserActivityById = (id: number) => {
+const getMockUserActivity = (id: number) => {
 	const userData = USER_ACTIVITY.find(user => user.userId === Number(id));
 	if (!userData) {
-		throw new Error(`No mock data found for user ID: ${id}`);
+		throw new Error(`No mock data for this ID: ${id}`);
 	}
 
 	return { data: { sessions: userData.sessions } };
@@ -59,10 +56,7 @@ export const getUserAverageSession = async (id: number) => {
 		const response = await axios.get(`${API_URL}/user/${id}/average-sessions`);
 		return response.data;
 	} catch (error) {
-		console.error(
-			'Error fetching average sessions from API, falling back to mock data',
-			error
-		);
+		console.error('Error fetch api -> Mock datas', error);
 		return getMockUserAverageSession(id);
 	}
 };
@@ -72,7 +66,7 @@ const getMockUserAverageSession = (id: number) => {
 		user => user.userId === Number(id)
 	);
 	if (!userData) {
-		throw new Error(`No mock data found for user ID: ${id}`);
+		throw new Error(`No mock data for user ID: ${id}`);
 	}
 	return {
 		data: {
@@ -94,10 +88,7 @@ export const getUserPerformance = async (id: number) => {
 		const response = await axios.get(`${API_URL}/user/${id}/performance`);
 		return response.data;
 	} catch (error) {
-		console.error(
-			'Error fetching performance from API, falling back to mock data',
-			error
-		);
+		console.error('Error fetch api -> Mock datas', error);
 		return getMockUserPerformance(id);
 	}
 };
@@ -105,7 +96,7 @@ export const getUserPerformance = async (id: number) => {
 const getMockUserPerformance = (id: number) => {
 	const userData = USER_PERFORMANCE.find(user => user.userId === Number(id));
 	if (!userData) {
-		throw new Error(`No mock data found for user ID: ${id}`);
+		throw new Error(`No mock data for user ID: ${id}`);
 	}
 	return {
 		data: {
