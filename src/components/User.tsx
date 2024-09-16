@@ -50,6 +50,3 @@ const User = () => {
 };
 
 export default User;
-// en dessous const user
-// 	const { id } = useParams();
-// 	const user = USER_MAIN_DATA.find(user => user.id.toString() === id);

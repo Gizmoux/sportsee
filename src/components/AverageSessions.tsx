@@ -98,29 +98,3 @@ const AverageSessions = () => {
 };
 
 export default AverageSessions;
-
-// Juste en dessous de const Average
-// const { id } = useParams();
-// const userData = USER_AVERAGE_SESSIONS.find(
-// 	user => user.userId.toString() === id
-// );
-// const data = userData
-// 	? userData.sessions.map(session => ({
-// 			name: userData.days[session.day],
-// 			average: session.sessionLength,
-// 	  }))
-// 	: [];
-
-// const CustomizedTooltip = ({ payload }: CustomizedTooltipProps) => {
-// 	if (!payload) return null;
-// 	// console.log(payload);
-// 	return (
-// 		<div className="average-tooltip">
-// 			{payload.map((elem, idx) => (
-// 				<div key={idx}>
-// 					<p>{elem.value} min</p>
-// 				</div>
-// 			))}
-// 		</div>
-// 	);
-// };

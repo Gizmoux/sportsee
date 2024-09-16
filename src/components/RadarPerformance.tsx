@@ -77,14 +77,3 @@ const RadarPerformance = () => {
 };
 
 export default RadarPerformance;
-
-// En dessous de const radarPerf..
-// const { id } = useParams();
-// const userData = USER_PERFORMANCE.find(user => user.userId.toString() === id);
-// // Transformer les données de userData pour les adapter au format attendu par RadarChart
-// const data = userData
-// 	? userData.data.map(item => ({
-// 			subject: userData.kind[item.kind],
-// 			value: item.value,
-// 	  }))
-// 	: [];

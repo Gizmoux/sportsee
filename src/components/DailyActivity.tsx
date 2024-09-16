@@ -106,7 +106,7 @@ const DailyActivity = () => {
 						<span>Calories brûlées(kCal)</span>
 					</div>
 				</div>
-				{/* <h1>Le user id est {id}</h1> */}
+
 				<BarChart
 					width={770}
 					height={200}
@@ -128,7 +128,6 @@ const DailyActivity = () => {
 						tickLine={false}
 					/>
 
-					{/* <Legend /> */}
 					<Tooltip
 						cursor={{ stroke: '#dfdfdf', strokeWidth: 2 }}
 						allowEscapeViewBox={{ x: true, y: true }}
@@ -156,18 +155,3 @@ const DailyActivity = () => {
 };
 
 export default DailyActivity;
-
-// En dessous de const Daily...
-// const { id } = useParams();
-
-// Trouver les données de l'utilisateur correspondant à l'ID
-// const userData = USER_ACTIVITY.find(user => user.userId.toString() === id);
-
-// Formatage des données pour Recharts
-// const data = userData
-// 	? userData.sessions.map(session => ({
-// 			name: session.day,
-// 			kilograms: session.kilogram,
-// 			calories: session.calories,
-// 	  }))
-// 	: [];
