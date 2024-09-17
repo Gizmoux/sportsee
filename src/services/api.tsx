@@ -6,7 +6,7 @@ import {
 } from '../mock/mockData';
 
 const API_URL = 'http://localhost:3000';
-const USE_MOCK_DATA = import.meta.env.VITE_MOCK_DATA === 'true';
+const USE_MOCK_DATA = import.meta.env.VITE_MOCK_DATA === 'false';
 
 // Récupérer l'id du User
 export const getUserById = async (id: number) => {
